@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
 :root {
   --dark-white: #f4f4f4;
   --black: #2d2d2d;
@@ -33,7 +33,8 @@
 
 .brackets {
   color: var(--yellow);
-  animation: flashing 4s linear infinite;
+  -webkit-animation: flashing 4s linear infinite;
+          animation: flashing 4s linear infinite;
   transition: color;
 }
 
@@ -89,15 +90,33 @@
 }
 
 .transition-flip-in-right {
-  animation: flipInLeft 0.5s both ease-out;
+  -webkit-animation: flipInLeft 0.5s both ease-out;
+          animation: flipInLeft 0.5s both ease-out;
   transform-origin: 50% 50%;
+}
+
+@-webkit-keyframes flipInLeft {
+  from {
+    transform: translateZ(-1000px) rotateY(-90deg);
+    opacity: 0.2;
+  }
 }
 
 @keyframes flipInLeft {
   from {
-    -webkit-transform: translateZ(-1000px) rotateY(-90deg);
     transform: translateZ(-1000px) rotateY(-90deg);
     opacity: 0.2;
+  }
+}
+@-webkit-keyframes flashing {
+  50% {
+    color: #fff59e;
+  }
+  90% {
+    color: var(--light-grey--color);
+  }
+  100% {
+    color: #d7dbc3;
   }
 }
 @keyframes flashing {
@@ -215,18 +234,31 @@ footer {
   display: inline-block;
   background-color: var(--text-color);
   border-radius: 50%;
-  animation: 1.3s slidein ease-in infinite;
+  -webkit-animation: 1.3s slidein ease-in infinite;
+          animation: 1.3s slidein ease-in infinite;
   transition: opacity;
   opacity: 0.3;
 }
 .preloader .circle:nth-child(2) {
-  animation-delay: 0.1s;
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
 }
 .preloader .circle:nth-child(2) {
-  animation-delay: 0.4s;
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
 }
 .preloader .circle:nth-child(3) {
-  animation-delay: 0.8s;
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+
+@-webkit-keyframes slidein {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slidein {
@@ -302,5 +334,3 @@ a {
 .hidden {
   display: none;
 }
-
-/*# sourceMappingURL=styles.css.map */
